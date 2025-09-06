@@ -1,0 +1,28 @@
+{
+  "name": "ptch-blog",
+  "version": "1.0.0",
+  "description": "ptch-blog aims to be a personal blog that serves as a passion project.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srahman-057/ptch-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srahman-057/ptch-blog/issues"
+  },
+  "homepage": "https://github.com/srahman-057/ptch-blog#readme",
+  "dependencies": {
+    "@arcjet/node": "^1.0.0-beta.11",
+    "@neondatabase/serverless": "^1.0.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.1"
+  }
+}
