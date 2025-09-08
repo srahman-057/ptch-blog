@@ -25,7 +25,7 @@ app.listen(PORT, () => {
 });
 
 app.get("/", (req,res) => {
-    res.send("Blog Initialization")
+    res.send("Blog Initialization");
 });
 
 app.use("/api/stories",storyRoutes);
