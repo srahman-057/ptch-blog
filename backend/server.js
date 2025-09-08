@@ -6,8 +6,11 @@ import morgan from "morgan";
 
 // Init
 dotenv.config();
-const app = express();
 const PORT = process.env.PORT || 3000;
+
+const app = express();
+app.use(express.json());
+
 
 // Security
 app.use(cors());
@@ -16,8 +19,8 @@ app.use(morgan("dev"));
 
 app.listen(PORT, () => {
     console.log("The server is now running on port " + PORT);
-})
+});
 
 app.get("/", (req,res) => {
     res.send("Blog Initialization")
-})
+});
