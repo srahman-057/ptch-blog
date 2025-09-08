@@ -4,6 +4,8 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 
+import storyRoutes from "./routes/storyRoutes.js";
+
 // Init
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -17,6 +19,7 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan("dev"));
 
+// Body
 app.listen(PORT, () => {
     console.log("The server is now running on port " + PORT);
 });
@@ -24,3 +27,5 @@ app.listen(PORT, () => {
 app.get("/", (req,res) => {
     res.send("Blog Initialization")
 });
+
+app.use("/api/stories",storyRoutes);
