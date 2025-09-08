@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-
 import storyRoutes from "./routes/storyRoutes.js";
 
 // Init
@@ -12,7 +11,6 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 app.use(express.json());
-
 
 // Security
 app.use(cors());
@@ -26,6 +24,7 @@ app.listen(PORT, () => {
 
 app.get("/", (req,res) => {
     res.send("Blog Initialization");
+    console.log("Blog Initialization");
 });
 
 app.use("/api/stories",storyRoutes);
