@@ -1,9 +1,18 @@
+import Navbar from "./components/Navbar";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import StoryPage from "./pages/StoryPage";
+
+
 function App() {
   return (
-    <div>
-      <h1 className="text-red-500 bg-green-500">Hello World</h1>
-      <button class="btn btn-primary">Button</button>
-      <button class="btn btn-accent btn-outline">Three</button>
+    <div className="min-h-screen bg-base-200 transition-colors duration-300">
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/story/:id" element={<StoryPage />} />
+      </Routes>
     </div>
   );
 }
