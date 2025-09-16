@@ -2,7 +2,7 @@
 
 function HomePage() {
   return (
-    <div>HomePage</div>
+    <div className="text-center">HomePage</div>
   )
 }
 
