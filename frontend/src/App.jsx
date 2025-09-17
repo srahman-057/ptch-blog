@@ -1,27 +1,30 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer"
+import FooterBlock from "./components/FooterBlock";
 import HomePage from "./pages/HomePage";
 import StoryPage from "./pages/StoryPage";
 
 
 function App() {
   return (
-    <div className="min-h-screen bg-base-100 transition-colors duration-300">
-      <Navbar />
+    <div className="flex flex-col h-screen gap-0">
+      <header>
+        <Navbar />
+      </header>
 
-      <br />
-      <br />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/story/:id" element={<StoryPage />} />
-      </Routes>
+      <main className="h-full bg-amber-100">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/story/:id" element={<StoryPage />} />
+        </Routes>
+      </main>
 
-      <br />
-      <br />
 
-      <Footer />
+
+      <footer>
+        <FooterBlock />
+      </footer>
     </div>
   );
 }

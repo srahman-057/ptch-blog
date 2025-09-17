@@ -3,6 +3,7 @@
 function StoryPage() {
   return (
     <div>StoryPage</div>
+    
   )
 }
 
