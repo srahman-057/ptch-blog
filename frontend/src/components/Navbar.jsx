@@ -3,7 +3,7 @@ import { Settings, Search } from "lucide-react";
 
 function Navbar() {
   return (
-    <div className="navbar bg-red-400">
+    <div className="navbar bg-violet-800">
         <div className="navbar-start">
             <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">

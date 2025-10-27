@@ -4,27 +4,26 @@ import FooterBlock from "./components/FooterBlock";
 import HomePage from "./pages/HomePage";
 import StoryPage from "./pages/StoryPage";
 
-
 function App() {
   return (
     <div className="flex flex-col h-screen gap-0">
-      <header>
+      <div>
         <Navbar />
-      </header>
+      </div>
 
 
-      <main className="h-full bg-amber-100">
+      <div className="h-full overflow-y-scroll justify-center items-center bg-violet-300 pt-6 pb-6">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/story/:id" element={<StoryPage />} />
         </Routes>
-      </main>
+      </div>
 
 
 
-      <footer>
+      <div>
         <FooterBlock />
-      </footer>
+      </div>
     </div>
   );
 }
