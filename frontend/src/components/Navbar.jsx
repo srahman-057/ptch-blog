@@ -3,7 +3,7 @@ import { Settings, Search } from "lucide-react";
 
 function Navbar() {
   return (
-    <div className="navbar bg-violet-800">
+    <div className="navbar bg-zinc-800 text-white">
         <div className="navbar-start">
             <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -22,7 +22,7 @@ function Navbar() {
             </div>
             <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-indigo-100 border-purple-700 border-2 z-[1] mt-3 w-auto p-2 shadow">
+                className="menu menu-md dropdown-content bg-red-200 border-black border-2 text-black z-[1] mt-3 w-auto p-2 shadow">
                 <li><a>Homepage</a></li>
                 <li><a>Portfolio</a></li>
                 <li><a>About</a></li>
