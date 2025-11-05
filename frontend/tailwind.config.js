@@ -7,7 +7,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        MG: ['Megrim', 'serif'],
+        J1: ['Jockey One' , 'serif']
+      },
+    },
   },
   plugins: [daisyui],
   // daisyUI config (optional - here are the default values)

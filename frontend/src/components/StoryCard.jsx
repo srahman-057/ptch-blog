@@ -6,12 +6,12 @@ const StoryCard = (props) => {
   return (
 
 
-      <div className={`w-${width} h-${height} md:w-80 md:h-max m-2 border-black bg-red-200 border-2 p-4 self-center bg-[url('')] `}>
+      <div className={`w-${width} h-${height} md:w-80 md:h-max m-2 border-black bg-orange-200 text-black border-2 p-4 self-center bg-[url('')] `}>
 
         <img src={`${image}`} className="border-2 border-black" alt="Shoes" />
         <br></br>
         
-        <div className="text-2xl font-bold">{title}</div>
+        <div className="text-2xl font-J1">{title}</div>
         <hr class="h-px mt-4 bg-black border-0 dark:bg-gray-700"></hr>
 
         <div className="text-xs italic m-1"> Tags: 
@@ -25,7 +25,7 @@ const StoryCard = (props) => {
           {content}
         </div>
         <br></br>
-        <div className="text-blue-700">Read More</div>
+        <div className="text-emerald-600 underline">Read More</div>
 
       </div>
   );

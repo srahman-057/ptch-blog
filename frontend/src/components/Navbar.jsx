@@ -24,12 +24,14 @@ function Navbar() {
                 tabIndex={0}
                 className="menu menu-md dropdown-content bg-red-200 border-black border-2 text-black z-[1] mt-3 w-auto p-2 shadow">
                 <li><a>Homepage</a></li>
-                <li><a>Portfolio</a></li>
+                <li><a>Calendar</a></li>
+                <li><a>Categories</a></li>
                 <li><a>About</a></li>
+                <li><a>Contact</a></li>
             </ul>
             </div>
 
-            <a className="btn btn-ghost text-xl">Ptch-Blog</a>
+            <a className="btn btn-ghost text-2xl font-MG">PothoChola</a>
         </div>
         <div className="navbar-center">
             

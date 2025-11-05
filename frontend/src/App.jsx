@@ -12,7 +12,7 @@ function App() {
       </div>
 
 
-      <div className="h-full overflow-y-scroll justify-center items-center bg-rose-500 pt-6 pb-6 pl-2 pr-2">
+      <div className="h-full overflow-y-scroll justify-center items-center bg-red-400 pt-6 pb-6 pl-2 pr-2">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/story/:id" element={<StoryPage />} />
