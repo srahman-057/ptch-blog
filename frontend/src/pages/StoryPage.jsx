@@ -1,4 +1,4 @@
-
+// Handles individual stories
 
 function StoryPage() {
   return (
