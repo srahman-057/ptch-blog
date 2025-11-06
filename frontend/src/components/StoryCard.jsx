@@ -1,14 +1,14 @@
 import React from 'react';
 
 const StoryCard = (props) => {
-  const { height, width, image, title, content } = props; // Destructure props for easier access
+  const { height, width, image, title, content, date } = props; // Destructure props for easier access
 
   return (
 
 
       <div className={`w-${width} h-${height} md:w-80 md:h-max m-2 border-black bg-orange-200 text-black border-2 p-4 self-center bg-[url('')] `}>
 
-        <img src={`${image}`} className="border-2 border-black" alt="Shoes" />
+        <img src={`${image}`} className="border-2 border-black aspect-video" alt="Story Image" />
         <br></br>
         
         <div className="text-2xl font-J1">{title}</div>
@@ -19,6 +19,7 @@ const StoryCard = (props) => {
           <button className="btn btn-secondary m-1 btn-xs">Sci-Fi</button>
 
         </div>
+
 
         <br></br>
         <div className="text-lg">
@@ -31,8 +32,5 @@ const StoryCard = (props) => {
   );
 };
 
-
-// {/* <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-// alt="Shoes" /> */}
 
 export default StoryCard
