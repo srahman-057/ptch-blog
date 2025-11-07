@@ -6,6 +6,7 @@ import morgan from "morgan";
 import storyRoutes from "./routes/storyRoutes.js";
 import { aj } from "./lib/arcjet.js"
 
+
 // Init
 dotenv.config();
 const PORT = process.env.PORT || 3000;

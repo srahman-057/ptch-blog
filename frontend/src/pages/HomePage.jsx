@@ -2,6 +2,7 @@
 
 import StoryCard from "../components/StoryCard";
 import { useState, useEffect } from 'react';
+import dotenv from "dotenv";
 
 function truncateString(str, maxLength) {
   if (str.length > maxLength) {
