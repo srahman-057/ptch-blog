@@ -2,7 +2,6 @@
 
 import StoryCard from "../components/StoryCard";
 import { useState, useEffect } from 'react';
-import dotenv from "dotenv";
 
 function truncateString(str, maxLength) {
   if (str.length > maxLength) {
@@ -20,7 +19,7 @@ function HomePage() {
 
       const fetchData = async () => {
         try {
-          const response = await fetch('http://localhost:3000/api/stories');
+          const response = await fetch('https://ptch-blog-backend.vercel.app/api/stories');
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
@@ -56,9 +55,9 @@ function HomePage() {
     }
 
     if (error) {
-      return 
-      
-      <p>Error: {error.message}</p>;
+      return (
+      <p>Error: {error.message}</p>
+      )
     }
 
   return (

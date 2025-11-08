@@ -52,8 +52,7 @@ app.listen(PORT, () => {
 });
 
 app.get("/", (req,res) => {
-    res.send("Blog Initialization");
-    console.log("Blog Initialization");
+    res.send("<h1>CRUD EXPRESS</h1>");
 });
 
 app.use("/api/stories",storyRoutes);
