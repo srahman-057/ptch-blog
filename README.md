@@ -12,11 +12,11 @@ This project utilizes the following:
 
 ## Building NPM modules
 
-Execute the command: ```npm i``` in the root directory to build the backend modules. Repeat the process in the frontend directory for the frontend modules.
+Execute the command: ```npm i``` in the 'backend/' directory to build the backend modules. Repeat the process in the frontend directory for the frontend modules.
 
 ## Running the project
 
-Execute ```npm run dev``` in the root directory and 'frontend/' directory to respectively start up the ExpressJS backend and ReactJS frontend. 
+Execute ```npm run dev``` in the 'backend/' and 'frontend/' directories respectively. This will start up the ExpressJS backend and ReactJS frontend. 
 
 ## Documentation
 
