@@ -63,7 +63,7 @@ function HomePage() {
   return (
     <div className="flex flex-wrap gap-4 justify-center">
       {data.map((item) => (
-          <StoryCard key={item.id} height={'max'} width={'3/4'} title={item.title} image={item.image} content={truncateString(item.content, 160)}/>
+          <StoryCard key={item.id} height={'max'} width={'3/4'} title={item.title} image={item.image} content={item.short_content} date={item.date}/>
       ))} 
     </div>
   )
