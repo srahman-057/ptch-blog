@@ -15,9 +15,19 @@ const app = express();
 app.use(express.json());
 
 // Security
-app.use(cors());
 app.use(helmet());
 app.use(morgan("dev"));
+
+// Define the allowed origin
+const allowedOrigin = 'https://ptch-blog-frontend.vercel.app/'; // Replace with the actual URL of your frontend server
+
+// Configure CORS options
+const corsOptions = {
+  origin: allowedOrigin,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'] // Specify allowed HTTP methods
+};
+
+app.use(cors(corsOptions));
 
 app.use(async (req, res, next) =>{
     try{
