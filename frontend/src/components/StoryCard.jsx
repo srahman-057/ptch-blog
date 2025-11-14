@@ -1,7 +1,5 @@
 // Standardized StoryCard component allows spawning various sizes of StoryCards at will
 
-import React from 'react';
-
 function truncateString(str, maxLength) {
   if (str.length > maxLength) {
     return str.slice(0, maxLength);
