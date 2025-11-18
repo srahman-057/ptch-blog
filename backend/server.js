@@ -10,6 +10,7 @@ import { aj } from "./lib/arcjet.js"
 // Init
 dotenv.config();
 const PORT = process.env.PORT || 3000;
+const ORIGIN_URL = process.env.ORIGIN_URL;
 
 const app = express();
 app.use(express.json());
@@ -19,7 +20,7 @@ app.use(helmet());
 app.use(morgan("dev"));
 
 // Define the allowed origin
-const allowedOrigin = 'https://ptch-blog-frontend.vercel.app/'; // Replace with the actual URL of your frontend server
+const allowedOrigin = ORIGIN_URL; 
 
 // Configure CORS options
 const corsOptions = {
