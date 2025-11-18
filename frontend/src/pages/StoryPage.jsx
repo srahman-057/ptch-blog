@@ -5,8 +5,10 @@ import StoryLayout from '../components/StoryLayout';
 
 function StoryPage() {
       // Craft string for API Call
-      const STORY_ID = useParams().id;``
-      const FETCH_STRING = "https://ptch-blog-backend.vercel.app/api/stories/" + STORY_ID;
+      const STORY_ID = useParams().id;
+      const VITE_ORIGIN_URL = import.meta.env.VITE_ORIGIN_URL; // URL of API Endpoint
+
+      const FETCH_STRING = VITE_ORIGIN_URL + STORY_ID;
 
       const [data, setData] = useState([]);
       const [loading, setLoading] = useState(true);

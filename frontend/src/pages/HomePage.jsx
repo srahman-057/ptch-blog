@@ -15,11 +15,12 @@ function HomePage() {
       const [data, setData] = useState([]);
       const [loading, setLoading] = useState(true);
       const [error, setError] = useState(null);
+      const VITE_ORIGIN_URL = import.meta.env.VITE_ORIGIN_URL; // URL of API Endpoint
 
 
       const fetchData = async () => {
         try {
-          const response = await fetch('https://ptch-blog-backend.vercel.app/api/stories');
+          const response = await fetch(VITE_ORIGIN_URL);
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
