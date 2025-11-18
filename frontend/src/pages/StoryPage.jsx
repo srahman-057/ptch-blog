@@ -6,9 +6,9 @@ import StoryLayout from '../components/StoryLayout';
 function StoryPage() {
       // Craft string for API Call
       const STORY_ID = useParams().id;
-      const VITE_ORIGIN_URL = import.meta.env.VITE_ORIGIN_URL; // URL of API Endpoint
+      const VITE_API_URL = import.meta.env.VITE_API_URL; // URL of API Endpoint
 
-      const FETCH_STRING = VITE_ORIGIN_URL + STORY_ID;
+      const FETCH_STRING = VITE_API_URL + STORY_ID;
 
       const [data, setData] = useState([]);
       const [loading, setLoading] = useState(true);

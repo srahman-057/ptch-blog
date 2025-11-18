@@ -15,12 +15,12 @@ function HomePage() {
       const [data, setData] = useState([]);
       const [loading, setLoading] = useState(true);
       const [error, setError] = useState(null);
-      const VITE_ORIGIN_URL = import.meta.env.VITE_ORIGIN_URL; // URL of API Endpoint
+      const VITE_API_URL = import.meta.env.VITE_API_URL; // URL of API Endpoint
 
 
       const fetchData = async () => {
         try {
-          const response = await fetch(VITE_ORIGIN_URL);
+          const response = await fetch(VITE_API_URL);
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
@@ -64,7 +64,7 @@ function HomePage() {
   return (
     <div className="flex flex-wrap gap-4 justify-center">
       {data.map((item) => (
-          <StoryCard key={item.id} height={'max'} width={'3/4'} title={item.title} image={item.image} content={item.short_content} date={item.date}/>
+          <StoryCard key={item.id} id={item.id} height={'max'} width={'3/4'} title={item.title} image={item.image} content={item.short_content} date={item.date}/>
       ))} 
     </div>
   )
