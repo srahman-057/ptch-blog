@@ -3,12 +3,49 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import StoryLayout from '../components/StoryLayout';
 
+// Category Map
+async function populateCategoryMap() {
+  const getAllCategoriesURL = import.meta.env.VITE_API_URL + "categories";
+
+  try {
+      const response = await fetch(getAllCategoriesURL); // Replace with your actual API endpoint
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json(); // API returns JSON
+      const categoryArr = data.data;
+      
+      // Populate the map
+      const categoryMap = new Map();
+      categoryArr.forEach(item => {
+        categoryMap.set(item.id, item.category); 
+      });
+
+      return categoryMap;
+
+  } catch (error) {
+      console.error("Error fetching or processing data:", error);
+      return null;
+  }
+}
+
 function StoryPage() {
       // Craft string for API Call
       const STORY_ID = useParams().id;
       const VITE_API_URL = import.meta.env.VITE_API_URL; // URL of API Endpoint
-
       const FETCH_STRING = VITE_API_URL + STORY_ID;
+
+      //const CATEGORYMAP = populateCategoryMap();
+      //console.log(CATEGORYMAP);
+
+      populateCategoryMap().then((result) => {
+        console.log(result); // "Data fetched successfully!"
+        // You can pass this 'result' to another function here
+        //processData(result);
+      }).catch((error) => {
+        console.error("Error:", error);
+      });
+
 
       const [data, setData] = useState([]);
       const [loading, setLoading] = useState(true);
@@ -60,7 +97,7 @@ function StoryPage() {
   return (
     <div className="flex flex-wrap gap-4 justify-center">
       {data.map((item) => (
-          <StoryLayout key={item.id} title={item.title} image={item.image} content={item.content} date={item.date}/>
+          <StoryLayout key={item.id} title={item.title} image={item.image} content={item.content} date={item.date} category={item.category} categoryMap={CATEGORYMAP}/>
       ))} 
     </div>
   )

@@ -29,7 +29,10 @@ export const createStory = async (req, res) => {
 // READ
 export const getStoryAll = async (req, res) => {
     try{
-        const queryResult = await sql.query(`SELECT * FROM stories`);
+        const queryResult = await sql.query(`
+            SELECT id, title, date, image, category, short_content 
+            FROM stories
+            `);
         console.log("Query Successful");
         res.status(200).json({ status: "success", data: queryResult});
     }
@@ -43,8 +46,25 @@ export const getStorySingle = async (req, res) => {
     try{
         const {id} = req.params;
         const queryResult = await sql`
-            SELECT * FROM stories
+            SELECT id, title, date, image, category, content
+            FROM stories
             WHERE id=${id}
+            `;
+
+        console.log("Query Successful");
+        res.status(200).json({ status: "success", data: queryResult});
+    }
+    catch(error){
+        console.log(error);
+        res.status(500).json({ status: "Failure", data: "None" });
+    }    
+};
+
+export const getAllCategories = async (req, res) => {
+    try{
+        const queryResult = await sql`
+            SELECT *
+            FROM categories
             `;
 
         console.log("Query Successful");

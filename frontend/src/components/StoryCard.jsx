@@ -9,10 +9,12 @@ function truncateString(str, maxLength) {
 }
 
 const StoryCard = (props) => {
-  const { id, height, width, title, image, content, date } = props; // Destructure props for easier access
+  const { id, height, width, title, image, content, date, category } = props; // Destructure props for easier access
   const formatted_date = truncateString(date,10);
+  //console.log(category);
+  //console.log(id);
 
-  // Craft link
+  // Craft URL
   const VITE_FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL; // URL of frontend
   const STORYPAGEURL = VITE_FRONTEND_URL + "story/" + id;
 
@@ -41,7 +43,6 @@ const StoryCard = (props) => {
 
         <br></br>
 
-        
         <div className="text-emerald-600 underline"><a href={`${STORYPAGEURL}`}>Read More</a></div>
 
       </div>

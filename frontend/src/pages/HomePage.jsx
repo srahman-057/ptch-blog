@@ -3,19 +3,41 @@
 import StoryCard from "../components/StoryCard";
 import { useState, useEffect } from 'react';
 
-function truncateString(str, maxLength) {
-  if (str.length > maxLength) {
-    return str.slice(0, maxLength) + '...';
-  } else {
-    return str;
+// Category Map
+async function populateCategoryMap() {
+  const getAllCategoriesURL = import.meta.env.VITE_API_URL + "categories";
+
+  try {
+      const response = await fetch(getAllCategoriesURL); // Replace with your actual API endpoint
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json(); // API returns JSON
+      const categoryArr = data.data;
+      
+      // Populate the map
+      const categoryMap = new Map();
+      categoryArr.forEach(item => {
+        categoryMap.set(item.id, item.category); 
+      });
+
+      return categoryMap;
+
+  } catch (error) {
+      console.error("Error fetching or processing data:", error);
+      return null;
   }
 }
+
 
 function HomePage() {
       const [data, setData] = useState([]);
       const [loading, setLoading] = useState(true);
       const [error, setError] = useState(null);
       const VITE_API_URL = import.meta.env.VITE_API_URL; // URL of API Endpoint
+      
+      //const getAllCategoriesURL = VITE_API_URL + "categories";
+      //console.log(getAllCategoriesURL);
 
 
       const fetchData = async () => {
@@ -64,7 +86,7 @@ function HomePage() {
   return (
     <div className="flex flex-wrap gap-4 justify-center">
       {data.map((item) => (
-          <StoryCard key={item.id} id={item.id} height={'max'} width={'3/4'} title={item.title} image={item.image} content={item.short_content} date={item.date}/>
+          <StoryCard key={item.id} id={item.id} height={'max'} width={'3/4'} title={item.title} image={item.image} content={item.short_content} date={item.date} category={item.category} categoryMap={populateCategoryMap()}/>
       ))} 
     </div>
   )
