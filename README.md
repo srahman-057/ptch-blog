@@ -16,6 +16,15 @@ Execute the command: ```npm i``` in the 'backend/' directory to build the backen
 
 ## Running the project
 
+Two .env files are needed for the project to work - one for the frontend and one for the backend. The values to be included in these files are:
+* '/backend/': 
+    * <i><b>DATABASE_URL</b></i>: The URL of your database 
+    * <i><b>ARCJET_KEY</b></i>: Arcjet provided API key
+    * <i><b>ORIGIN_URL</b></i>: URL of the frontend. CORS policy will block requests from any other origin.
+* '/frontend/':
+    * <i><b>VITE_API_URL</b></i>: URL of the Node backend in this project.
+    * <i><b>VITE_FRONTEND_URL</b></i>: URL of the Vite frontend in this project. 
+
 Execute ```npm run dev``` in the 'backend/' and 'frontend/' directories respectively. This will start up the ExpressJS backend and ReactJS frontend. 
 
 ## Documentation

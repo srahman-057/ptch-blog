@@ -2,6 +2,7 @@
 import { Settings, Search } from "lucide-react";  
 
 function Navbar() {
+  const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL;
   return (
     <div className="navbar bg-zinc-800 text-white">
         <div className="navbar-start">
@@ -31,7 +32,7 @@ function Navbar() {
             </ul>
             </div>
 
-            <a className="btn btn-ghost text-2xl font-MG">PothoChola</a>
+            <a className="btn btn-ghost text-2xl font-MG" href={FRONTEND_URL}>PothoChola</a>
         </div>
         <div className="navbar-center">
             

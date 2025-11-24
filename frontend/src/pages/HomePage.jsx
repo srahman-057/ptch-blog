@@ -3,64 +3,58 @@
 import StoryCard from "../components/StoryCard";
 import { useState, useEffect } from 'react';
 
-// Category Map
-async function populateCategoryMap() {
-  const getAllCategoriesURL = import.meta.env.VITE_API_URL + "categories";
-
-  try {
-      const response = await fetch(getAllCategoriesURL); // Replace with your actual API endpoint
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json(); // API returns JSON
-      const categoryArr = data.data;
-      
-      // Populate the map
-      const categoryMap = new Map();
-      categoryArr.forEach(item => {
-        categoryMap.set(item.id, item.category); 
-      });
-
-      return categoryMap;
-
-  } catch (error) {
-      console.error("Error fetching or processing data:", error);
-      return null;
-  }
-}
-
-
 function HomePage() {
-      const [data, setData] = useState([]);
-      const [loading, setLoading] = useState(true);
-      const [error, setError] = useState(null);
+      // Init
       const VITE_API_URL = import.meta.env.VITE_API_URL; // URL of API Endpoint
-      
-      //const getAllCategoriesURL = VITE_API_URL + "categories";
-      //console.log(getAllCategoriesURL);
+      const getAllCategoriesURL = VITE_API_URL + "categories"; // Craft category API call
 
+      // State management for story data
+      const [storydata, setStoryData] = useState([]);
+      const [storyloading, setStoryLoading] = useState(true);
+      const [storyerror, setStoryError] = useState(null);
 
-      const fetchData = async () => {
+      // State management for category data
+      const [categorydata, setCategoryData] = useState([]);
+      const [categoryloading, setCategoryLoading] = useState(true);
+      const [categoryerror, setCategoryError] = useState(null);
+
+      const fetchAllStoryData = async () => {
         try {
-          const response = await fetch(VITE_API_URL);
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+          const storyresponse = await fetch(VITE_API_URL);
+          if (!storyresponse.ok) {
+            throw new Error(`HTTP error! status: ${storyresponse.status}`);
           }
-          const result = await response.json();
-          setData(result.data);
-        } catch (error) {
-          setError(error);
+          const storyresult = await storyresponse.json();
+          setStoryData(storyresult.data);
+        } catch (storyerror) {
+          setStoryError(storyerror);
         } finally {
-          setLoading(false);
+          setStoryLoading(false);
+        }
+      };
+
+      const fetchCategoryData = async () => {
+        try {
+          const categoryresponse = await fetch(getAllCategoriesURL);
+          if (!categoryresponse.ok) {
+            throw new Error(`HTTP error! status: ${categoryresponse.status}`);
+          }
+          const categoryresult = await categoryresponse.json();
+          setCategoryData(categoryresult.data);
+        } catch (categoryerror) {
+          setCategoryError(categoryerror);
+        } finally {
+          setCategoryLoading(false);
         }
       };
 
     useEffect(() => {
 
-      fetchData();
+      fetchAllStoryData();
+      fetchCategoryData();
     }, []); // Empty dependency array ensures this runs only once on mount
 
-    if (loading) {
+    if (storyloading) {
       // Add skeleton StoryCard here for loading display
       return(
       <>  
@@ -71,22 +65,32 @@ function HomePage() {
           <div className="skeleton h-4 w-full bg-orange-300 border-2 border-black rounded-none"></div>
           <div className="skeleton h-4 w-3/4 bg-orange-300 border-2 border-black rounded-none"></div>
           <div className="skeleton h-4 w-full bg-orange-300 border-2 border-black rounded-none"></div>
-
         </div>
       </>
       ) 
     }
 
-    if (error) {
+    if (storyerror) {
       return (
-      <p>Error: {error.message}</p>
+      <p>Error: {storyerror.message}</p>
       )
     }
 
+    if (categoryerror) {
+      return (
+      <p>Error: {categoryerror.message}</p>
+      )
+    }  
+  
+    const CATEGORYMAP = new Map();
+    categorydata.map((item) => {
+      CATEGORYMAP.set(item.id, item.category); 
+    });
+
   return (
     <div className="flex flex-wrap gap-4 justify-center">
-      {data.map((item) => (
-          <StoryCard key={item.id} id={item.id} height={'max'} width={'3/4'} title={item.title} image={item.image} content={item.short_content} date={item.date} category={item.category} categoryMap={populateCategoryMap()}/>
+      {storydata.map((item) => (
+          <StoryCard key={item.id} id={item.id} height={'max'} width={'3/4'} title={item.title} image={item.image} content={item.short_content} date={item.date} categoryArr={item.category} categoryMap={CATEGORYMAP}/>
       ))} 
     </div>
   )
