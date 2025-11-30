@@ -37,16 +37,15 @@ const StoryLayout = (props) => {
         <hr className="h-px mt-4 bg-black border-0 dark:bg-gray-700"></hr>
         
         <div className="text-xs italic m-1">Tags: 
-        {tagString}
+          {tagString}
         </div>
 
         <br></br>
         
         <article>
-          
-
           <p className="mb-4">{content}</p>
         </article>
+        
       </div>
     </div>
   );
