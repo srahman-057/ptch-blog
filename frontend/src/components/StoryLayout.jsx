@@ -1,4 +1,5 @@
 // Layout for individual Stories
+import ContentImageLayout from "./ContentImageLayout";
 
 function truncateString(str, maxLength) {
   if (str.length > maxLength) {
@@ -43,6 +44,7 @@ const StoryLayout = (props) => {
         <br></br>
         
         <article>
+          {ContentImageLayout(1,"LEFT",image)}
           <p className="mb-4">{content}</p>
         </article>
         

@@ -1,5 +1,5 @@
-//import ThemeSelector from "../components/ThemeSelector";
-import { Settings, Search } from "lucide-react";  
+// import ThemeSelector from "../components/ThemeSelector";
+// import { Settings, Search } from "lucide-react";  
 
 function Navbar() {
   const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL;
@@ -25,23 +25,23 @@ function Navbar() {
                 tabIndex={0}
                 className="menu menu-md dropdown-content bg-red-200 border-black border-2 text-black z-[1] mt-3 w-auto p-2 shadow">
                 <li><a>Homepage</a></li>
-                <li><a>Calendar</a></li>
-                <li><a>Categories</a></li>
-                <li><a>About</a></li>
-                <li><a>Contact</a></li>
+                {/* <li><a>Calendar</a></li>
+                <li><a>Categories</a></li> */}
+                <li><a href="https://www.srahman.io/">About</a></li>
+                {/* <li><a>Contact</a></li> */}
             </ul>
             </div>
 
-            <a className="btn btn-ghost text-2xl font-MG" href={FRONTEND_URL}>PothoChola</a>
+            <a className="btn btn-ghost text-2xl font-MG" href={FRONTEND_URL}>PothoChari</a>
         </div>
         <div className="navbar-center">
             
         </div>
         <div className="navbar-end">
 
-        <Search />
+        {/* <Search />
         <pre> </pre>
-        <Settings />
+        <Settings /> */}
 
         </div>
         </div>
