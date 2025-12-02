@@ -24,10 +24,10 @@ function Navbar() {
             <ul
                 tabIndex={0}
                 className="menu menu-md dropdown-content bg-red-200 border-black border-2 text-black z-[1] mt-3 w-auto p-2 shadow">
-                <li><a>Homepage</a></li>
+                <li><a href={FRONTEND_URL}>Homepage</a></li>
                 {/* <li><a>Calendar</a></li>
                 <li><a>Categories</a></li> */}
-                <li><a href="https://www.srahman.io/">About</a></li>
+                <li><a href="https://www.srahman.io/" target="_blank">About</a></li>
                 {/* <li><a>Contact</a></li> */}
             </ul>
             </div>

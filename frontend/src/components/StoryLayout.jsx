@@ -1,5 +1,6 @@
 // Layout for individual Stories
 import ContentImageLayout from "./ContentImageLayout";
+import parse from "html-react-parser";
 
 function truncateString(str, maxLength) {
   if (str.length > maxLength) {
@@ -9,24 +10,51 @@ function truncateString(str, maxLength) {
   }
 }
 
+function evaluateContentString(content,contentImageArr){
+
+  const replaceStr1 = ContentImageLayout(2,"RIGHT",contentImageArr[0]);
+  const replaceStr2 = ContentImageLayout(2,"LEFT",contentImageArr[1]);
+
+  const template = "RightImage1: %BODYIMAGE1%, LeftImage2: %BODYIMAGE2%";
+  const replacements = { "%BODYIMAGE1%": replaceStr1, "%BODYIMAGE2%": replaceStr2};
+  let result = content;
+
+  for (const placeholder in replacements) {
+    result = result.replace(new RegExp(placeholder, 'g'), replacements[placeholder]);
+  } 
+
+  // DEBUGGING:
+    // console.log("replaceStr1: " + replaceStr1);
+    // console.log("replaceStr2: " + replaceStr2);
+    // console.log("RESULT: "+ result); // Output: "User: Eve, ID: 12345"
+
+  return result;
+}
+
+
 const StoryLayout = (props) => {
-  const { image, title, content, date, categoryArr, categoryMap } = props; // Destructure props for easier access
+  const { image, title, content, date, categoryArr, categoryMap, contentImageArr } = props; // Destructure props for easier access
   const formatted_date = truncateString(date,10);
   var tagString = " ";
 
-  console.log("Category:" + categoryArr);
-  console.log("CategoryMap" + categoryMap);
+  // DEBUGGING:
+    // console.log("Category:" + categoryArr);
+    // console.log("CategoryMap" + categoryMap);
+    // console.log("ContentImageArr: " + contentImageArr[1]);
 
   // Craft tagString using category information props
   categoryMap.forEach((value, key) => {
     for (let i = 0; i < categoryArr.length; i++) {
       if(categoryArr[i] == key) tagString += value + ", ";
-      // console.log("Loop, i=" + i + "categoryArr[i]=" + categoryArr[i], ", Current categoryMap value: " + value);
+        // console.log("Loop, i=" + i + "categoryArr[i]=" + categoryArr[i], ", Current categoryMap value: " + value);
     }
   });
 
   // Get rid of last ' ,' in the string
   tagString = truncateString(tagString, tagString.length -2);
+
+  // Insert HTML tags to the raw Content string
+  const evaluatedString = evaluateContentString(content,contentImageArr);
 
   return (
     <div className="flex h-full justify-center">
@@ -45,7 +73,11 @@ const StoryLayout = (props) => {
         
         <article>
           {ContentImageLayout(1,"LEFT",image)}
-          <p className="mb-4">{content}</p>
+
+          <div>
+            {parse(temporaryString)}
+          </div> 
+
         </article>
         
       </div>

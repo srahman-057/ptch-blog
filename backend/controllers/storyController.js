@@ -46,7 +46,7 @@ export const getStorySingle = async (req, res) => {
     try{
         const {id} = req.params;
         const queryResult = await sql`
-            SELECT id, title, date, image, category, content
+            SELECT id, title, date, image, category, content,content_images
             FROM stories
             WHERE id=${id}
             `;
