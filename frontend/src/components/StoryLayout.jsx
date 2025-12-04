@@ -11,22 +11,35 @@ function truncateString(str, maxLength) {
 }
 
 function evaluateContentString(content,contentImageArr){
-
-  const replaceStr1 = ContentImageLayout(2,"RIGHT",contentImageArr[0]);
-  const replaceStr2 = ContentImageLayout(2,"LEFT",contentImageArr[1]);
-
-  const template = "RightImage1: %BODYIMAGE1%, LeftImage2: %BODYIMAGE2%";
-  const replacements = { "%BODYIMAGE1%": replaceStr1, "%BODYIMAGE2%": replaceStr2};
   let result = content;
 
-  for (const placeholder in replacements) {
-    result = result.replace(new RegExp(placeholder, 'g'), replacements[placeholder]);
-  } 
+  if(contentImageArr)
+  {
+    let replacementMapString, replacementMapPlaceholder;
+    const replacementMap = new Map();
 
-  // DEBUGGING:
-    // console.log("replaceStr1: " + replaceStr1);
-    // console.log("replaceStr2: " + replaceStr2);
-    // console.log("RESULT: "+ result); // Output: "User: Eve, ID: 12345"
+    // Create map for holding placeholder:replacement pairs
+    for (let i=0; i<contentImageArr.length; i++){
+      if((i%2)==0)
+      {
+        replacementMapString = ContentImageLayout(2,"RIGHT",contentImageArr[i]);
+        replacementMapPlaceholder = "%BODYIMAGE" + (i+1) + "%";
+        //console.log("i: " + i + ", ReplacementMapString: " + replacementMapString + ", replacementMapPlaceholder: " + replacementMapPlaceholder);
+      }
+      else
+      {
+        replacementMapString = ContentImageLayout(2,"LEFT",contentImageArr[i]);
+        replacementMapPlaceholder = "%BODYIMAGE" + (i+1) + "%";
+        //console.log("i: " + i + ", ReplacementMapString: " + replacementMapString + ", replacementMapPlaceholder: " + replacementMapPlaceholder);
+      }
+      replacementMap.set(replacementMapPlaceholder,replacementMapString);
+    }
+
+    // Perform placeholder replacements
+    replacementMap.forEach((value, key) => {
+      result = result.replace(new RegExp(key, 'g'), value);
+    });
+  }
 
   return result;
 }
@@ -53,7 +66,7 @@ const StoryLayout = (props) => {
   // Get rid of last ' ,' in the string
   tagString = truncateString(tagString, tagString.length -2);
 
-  // Insert HTML tags to the raw Content string
+  // Process the raw post Content to make it React-ready
   const evaluatedString = evaluateContentString(content,contentImageArr);
 
   return (
@@ -73,11 +86,7 @@ const StoryLayout = (props) => {
         
         <article>
           {ContentImageLayout(1,"LEFT",image)}
-
-          <div>
-            {parse(temporaryString)}
-          </div> 
-
+          {parse(evaluatedString)}
         </article>
         
       </div>
