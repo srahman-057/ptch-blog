@@ -14,7 +14,7 @@
         @apply text-lg font-J1 underline;
     }
     h3{
-        @apply text-base underline;
+        @apply text-base font-J1;
     }
     p{
         @apply text-base font-sans;
