@@ -12,9 +12,13 @@ function ContentImageLayout(TYPE, POSITION, URL){
         {
             return "<img className='float-left w-1/2 md:w-1/4 border-2 border-black mr-2' src='" +  URL + "' />";
         }
-        else if(POSITION="RIGHT")
+        else if(POSITION=="RIGHT")
         {
             return "<img className='float-right w-1/2 md:w-1/4 border-2 border-black ml-2' src='" +  URL + "' />";
+        }
+        else if(POSITION=="FLEX")
+        {
+            return "<div><img className='border-2 border-black' object-contain src='" +  URL + "' /></div>";
         }
         else
         {

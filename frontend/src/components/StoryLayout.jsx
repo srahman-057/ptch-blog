@@ -10,31 +10,53 @@ function truncateString(str, maxLength) {
   }
 }
 
-function evaluateContentString(content,contentImageArr){
+function evaluateContentString(content, contentImageArr, imageStringArr){
   let result = content;
 
   if(contentImageArr)
   {
-    let replacementMapString, replacementMapPlaceholder;
+    let replacementMapString, replacementMapPlaceholder, compareStr;
     const replacementMap = new Map();
 
     // Create map for holding placeholder:replacement pairs
     for (let i=0; i<contentImageArr.length; i++){
-      if((i%2)==0)
-      {
-        replacementMapString = ContentImageLayout(2,"RIGHT",contentImageArr[i]);
-        replacementMapPlaceholder = "%BODYIMAGE" + (i+1) + "%";
-        //console.log("i: " + i + ", ReplacementMapString: " + replacementMapString + ", replacementMapPlaceholder: " + replacementMapPlaceholder);
+      compareStr = truncateString(imageStringArr[i], (imageStringArr[i].length) -2);
+
+      switch (compareStr) {
+        case "%FLEXIMAGE":
+          replacementMapString = ContentImageLayout(2,"FLEX",contentImageArr[i]);
+          replacementMapPlaceholder = imageStringArr[i];
+          break;
+
+        case "%BODYIMAGE":
+          if((i%2)==0)
+          {
+              replacementMapString = ContentImageLayout(2,"RIGHT",contentImageArr[i]);
+              replacementMapPlaceholder = imageStringArr[i];
+          }
+          else
+          {
+              replacementMapString = ContentImageLayout(2,"LEFT",contentImageArr[i]);
+              replacementMapPlaceholder = imageStringArr[i];
+          }
+          break;
+
+        default:
+          console.log("No match in compareStr")
       }
-      else
-      {
-        replacementMapString = ContentImageLayout(2,"LEFT",contentImageArr[i]);
-        replacementMapPlaceholder = "%BODYIMAGE" + (i+1) + "%";
-        //console.log("i: " + i + ", ReplacementMapString: " + replacementMapString + ", replacementMapPlaceholder: " + replacementMapPlaceholder);
-      }
+      
       replacementMap.set(replacementMapPlaceholder,replacementMapString);
     }
 
+    // Add tag more replacement information to map
+    replacementMap.set("%FLEXBOXOPEN%","<div className='flex flex-col md:flex-row gap-3 h-1/2 md:h-1/2 md: w-full justify-center'>");
+    replacementMap.set("%FLEXBOXCLOSE%","</div>"); 
+    
+    replacementMap.set("%BLOCKQUOTEOPEN%","<blockquote class='p-4 m-4 bg-orange-100 border-l-4 border-orange-300'>");
+    replacementMap.set("%BLOCKQUOTECLOSE%","</blockquote>"); 
+
+
+    //<blockquote class="p-4 my-4 bg-gray-50 border-l-4 border-gray-300">
     // Perform placeholder replacements
     replacementMap.forEach((value, key) => {
       result = result.replace(new RegExp(key, 'g'), value);
@@ -46,7 +68,7 @@ function evaluateContentString(content,contentImageArr){
 
 
 const StoryLayout = (props) => {
-  const { image, title, content, date, categoryArr, categoryMap, contentImageArr } = props; // Destructure props for easier access
+  const { image, title, content, date, categoryArr, categoryMap, contentImageArr, imageStringArr } = props; // Destructure props for easier access
   const formatted_date = truncateString(date,10);
   var tagString = " ";
 
@@ -67,7 +89,7 @@ const StoryLayout = (props) => {
   tagString = truncateString(tagString, tagString.length -2);
 
   // Process the raw post Content to make it React-ready
-  const evaluatedString = evaluateContentString(content,contentImageArr);
+  const evaluatedString = evaluateContentString(content,contentImageArr,imageStringArr);
 
   return (
     <div className="flex h-full justify-center">

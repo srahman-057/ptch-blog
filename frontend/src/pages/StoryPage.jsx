@@ -95,7 +95,7 @@ function StoryPage() {
   return (
     <div className="flex flex-wrap gap-4 justify-center">
       {storydata.map((item) => (
-        <StoryLayout key={item.id} title={item.title} image={item.image} content={item.content} date={item.date} categoryArr={item.category} categoryMap={CATEGORYMAP} contentImageArr={item.content_images}/>
+        <StoryLayout key={item.id} title={item.title} image={item.image} content={item.content} date={item.date} categoryArr={item.category} categoryMap={CATEGORYMAP} contentImageArr={item.content_images} imageStringArr={item.image_strings}/>
       ))}
     </div>
   )
