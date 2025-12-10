@@ -49,14 +49,12 @@ function evaluateContentString(content, contentImageArr, imageStringArr){
     }
 
     // Add tag more replacement information to map
-    replacementMap.set("%FLEXBOXOPEN%","<div className='flex flex-col md:flex-row gap-3 h-1/2 md:h-1/2 md: w-full justify-center'>");
+    replacementMap.set("%FLEXBOXOPEN%","<div className='flex flex-col md:flex-row gap-3 justify-center'>");
     replacementMap.set("%FLEXBOXCLOSE%","</div>"); 
     
     replacementMap.set("%BLOCKQUOTEOPEN%","<blockquote class='p-4 m-4 bg-orange-100 border-l-4 border-orange-300'>");
     replacementMap.set("%BLOCKQUOTECLOSE%","</blockquote>"); 
 
-
-    //<blockquote class="p-4 my-4 bg-gray-50 border-l-4 border-gray-300">
     // Perform placeholder replacements
     replacementMap.forEach((value, key) => {
       result = result.replace(new RegExp(key, 'g'), value);
