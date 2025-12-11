@@ -10,8 +10,9 @@ function truncateString(str, maxLength) {
   }
 }
 
-function evaluateContentString(content, contentImageArr, imageStringArr){
+function evaluateContentString(content, contentImageArr, imageStringArr, captionStringArr){
   let result = content;
+  console.log(captionStringArr);
 
   if(contentImageArr)
   {
@@ -24,19 +25,19 @@ function evaluateContentString(content, contentImageArr, imageStringArr){
 
       switch (compareStr) {
         case "%FLEXIMAGE":
-          replacementMapString = ContentImageLayout(2,"FLEX",contentImageArr[i]);
+          replacementMapString = ContentImageLayout(2, "FLEX", contentImageArr[i], captionStringArr[i]);
           replacementMapPlaceholder = imageStringArr[i];
           break;
 
         case "%BODYIMAGE":
           if((i%2)==0)
           {
-              replacementMapString = ContentImageLayout(2,"RIGHT",contentImageArr[i]);
+              replacementMapString = ContentImageLayout(2, "RIGHT", contentImageArr[i], captionStringArr[i]);
               replacementMapPlaceholder = imageStringArr[i];
           }
           else
           {
-              replacementMapString = ContentImageLayout(2,"LEFT",contentImageArr[i]);
+              replacementMapString = ContentImageLayout(2, "LEFT", contentImageArr[i], captionStringArr[i]);
               replacementMapPlaceholder = imageStringArr[i];
           }
           break;
@@ -66,7 +67,7 @@ function evaluateContentString(content, contentImageArr, imageStringArr){
 
 
 const StoryLayout = (props) => {
-  const { image, title, content, date, categoryArr, categoryMap, contentImageArr, imageStringArr } = props; // Destructure props for easier access
+  const { image, title, content, date, categoryArr, categoryMap, contentImageArr, imageStringArr, captionStringArr } = props; // Destructure props for easier access
   const formatted_date = truncateString(date,10);
   var tagString = " ";
 
@@ -87,7 +88,7 @@ const StoryLayout = (props) => {
   tagString = truncateString(tagString, tagString.length -2);
 
   // Process the raw post Content to make it React-ready
-  const evaluatedString = evaluateContentString(content,contentImageArr,imageStringArr);
+  const evaluatedString = evaluateContentString(content,contentImageArr,imageStringArr,captionStringArr);
 
   return (
     <div className="flex h-full justify-center">
