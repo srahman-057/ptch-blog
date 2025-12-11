@@ -1,6 +1,6 @@
 # ptch-blog
 
-ptch-blog aims to be a personal blog that serves as a passion project. 
+ptch-blog aims to be a personal blog that serves as a passion project. Project deployed at: <u><a href="https://www.pothochari.com/" target="_blank">www.pothochari.com</a></u></p><br>
 
 ## Under the hood
 
