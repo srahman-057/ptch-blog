@@ -45,7 +45,7 @@ function ContentImageLayout(TYPE, POSITION, URL, CAPTION){
         }
         else if(POSITION=="FLEX")
         {
-            return "<div className='grid grid-cols-1 border-2 border-black bg-orange-300'><div><img className=''  src='" +  URL + "' /></div><div className='text-wrap p-0.5 text-center'>" + CAPTION + "</div></div>";
+            return "<div className='grid grid-cols-1 border-2 border-black divide-y divide-black bg-orange-300'><div><img className=''  src='" +  URL + "' /></div><div className='text-wrap p-0.5 text-center'>" + CAPTION + "</div></div>";
         }
         else
         {
