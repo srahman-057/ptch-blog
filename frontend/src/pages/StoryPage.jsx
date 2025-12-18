@@ -60,7 +60,7 @@ function StoryPage() {
       // Add skeleton StoryCard here for loading display
       return(
       <>  
-        <div className="text-2xl text-center font-MG font-bold"> Loading Stories......</div> 
+        <div className="text-2xl text-center font-MG font-bold"> Loading Story......</div> 
 
         <br></br> 
 
