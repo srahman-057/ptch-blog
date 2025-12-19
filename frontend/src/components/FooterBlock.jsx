@@ -4,7 +4,7 @@ function FooterBlock() {
 
     <div className="bg-zinc-800 p-4 text-white">
 
-    <p className="place-self-center">Copyright © {new Date().getFullYear()} - All right reserved</p>
+    <p className="text-center">Copyright © {new Date().getFullYear()} - All right reserved</p>
     
     </div>
   )

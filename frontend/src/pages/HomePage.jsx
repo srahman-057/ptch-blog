@@ -57,16 +57,20 @@ function HomePage() {
     if (storyloading) {
       // Add skeleton StoryCard here for loading display
       return(
-      <>  
-        <div className="text-2xl text-center font-MG font-bold"> Loading Stories......</div> 
-        <br></br> 
-        <div className={`flex flex-col w-3/4 h-max md:w-80 md:h-max m-2 border-black bg-orange-200 text-black border-2 p-4 place-self-center gap-4`}>
-          <div className="skeleton h-32 w-full bg-orange-300 border-2 border-black rounded-none"></div>
-          <div className="skeleton h-4 w-full bg-orange-300 border-2 border-black rounded-none"></div>
-          <div className="skeleton h-4 w-3/4 bg-orange-300 border-2 border-black rounded-none"></div>
-          <div className="skeleton h-4 w-full bg-orange-300 border-2 border-black rounded-none"></div>
+
+        <div className="grid justify-center">
+          <div className="text-2xl text-center font-MG font-bold"> Loading Story......</div> 
+
+          <br></br> 
+
+          <div className="flex flex-col w-full h-max md:w-80 md:h-max m-2 border-black bg-orange-200 text-black border-2 p-4 gap-4">
+            <div className="skeleton h-32 w-full bg-orange-300 border-2 border-black rounded-none"></div>
+            <div className="skeleton h-4 w-full bg-orange-300 border-2 border-black rounded-none"></div>
+            <div className="skeleton h-4 w-3/4 bg-orange-300 border-2 border-black rounded-none"></div>
+            <div className="skeleton h-4 w-full bg-orange-300 border-2 border-black rounded-none"></div>
+          </div>
         </div>
-      </>
+
       ) 
     }
 
