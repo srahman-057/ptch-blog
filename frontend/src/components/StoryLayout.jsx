@@ -53,7 +53,7 @@ function evaluateContentString(content, contentImageArr, imageStringArr, caption
     replacementMap.set("%FLEXBOXOPEN%","<div className='flex flex-col md:flex-row gap-3 justify-center'>");
     replacementMap.set("%FLEXBOXCLOSE%","</div>"); 
     
-    replacementMap.set("%BLOCKQUOTEOPEN%","<blockquote class='p-4 m-4 bg-orange-100 border-l-4 border-orange-300 clear-both'>");
+    replacementMap.set("%BLOCKQUOTEOPEN%","<blockquote class='p-4 md:p-8 mt-4 mb-4 md:clear-both bg-orange-100 border-l-4 border-orange-300'>");
     replacementMap.set("%BLOCKQUOTECLOSE%","</blockquote>"); 
 
     // Perform placeholder replacements

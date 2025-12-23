@@ -37,11 +37,11 @@ function ContentImageLayout(TYPE, POSITION, URL, CAPTION){
     case 2: // Content Images
         if(POSITION=="LEFT")
         {
-            return "<div className='flex w-max md:float-left md:clear-left md:mr-2 md:w-1/4 mt-2 mb-2 md:mt-0 md:mb-0'><div className='grid grid-cols-1 border-2 border-black divide-y divide-black  bg-orange-300'><div><img className='' src='" +  URL + "' /></div><div className='text-wrap p-0.5 text-center'>" + CAPTION + "  </div></div> </div>";
+            return "<div className='grid grid-cols-1 w-full md:clear-left md:float-left md:mr-2 md:w-1/4 border-2 border-black divide-y divide-black  bg-orange-300 mt-2 mb-2 md:mt-2 md:mb-2'><div><img className='' src='" +  URL + "' /></div><div className='text-wrap p-0.5 text-center'>" + CAPTION + "  </div></div> ";
         }
         else if(POSITION=="RIGHT")
         {
-            return "<div className='flex w-max md:float-right md:clear-right md:ml-2 md:w-1/4 mt-2 mb-2 md:mt-2 md:mb-2'><div className='grid grid-cols-1 border-2 border-black divide-y divide-black  bg-orange-300 '><div><img className='' src='" +  URL + "'/></div><div className='text-wrap p-0.5 text-center'>" + CAPTION + "</div></div> </div>";
+            return "<div className='grid grid-cols-1 w-full md:clear-right md:float-right md:ml-2 md:w-1/4 border-2 border-black divide-y divide-black  bg-orange-300 mt-2 mb-2 md:mt-2 md:mb-2'><div><img className='' src='" +  URL + "'/></div><div className='text-wrap p-0.5 text-center'>" + CAPTION + "</div></div>";
         }
         else if(POSITION=="FLEX")
         {

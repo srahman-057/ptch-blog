@@ -59,7 +59,7 @@ function HomePage() {
       return(
 
         <div className="grid justify-center">
-          <div className="text-2xl text-center font-MG font-bold"> Loading Story......</div> 
+          <div className="text-2xl text-center font-MG font-bold"> Loading Stories......</div> 
 
           <br></br> 
 

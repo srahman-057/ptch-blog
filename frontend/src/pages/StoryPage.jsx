@@ -72,7 +72,6 @@ function StoryPage() {
             <div className="skeleton h-4 w-full bg-orange-300 border-2 border-black rounded-none"></div>
           </div>
         </div>
-
       ) 
     }
 
