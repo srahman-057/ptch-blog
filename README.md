@@ -29,7 +29,7 @@ Execute ```npm run dev``` in the 'backend/' and 'frontend/' directories respecti
 
 ## Documentation
 
-The blog is built with a mobile-first approach, with a default dark theme. A lightweight but feature-rich control panel is meant to make blog management a breeze.
+The blog is built with a mobile-first approach, with a default dark theme. A planned lightweight but feature-rich control panel is meant to make blog management a breeze.
 
 ## Future improvements
 
