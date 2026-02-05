@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["esnext"],
+    "types": ["node","express"],
+    "allowJs": true,
+    "resolveJsonModule": true,
+
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+    "exclude": [
+    "node_modules",
+  ],
+    "include": [
+    "**/*.ts", "lib/arcjet.js",
+  ]
+}
