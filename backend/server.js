@@ -4,7 +4,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import storyRoutes from "./routes/storyRoutes.js";
-import { aj } from "./lib/arcjet.js"
+import { aj } from "./lib/arcjet.ts"
 
 
 // Init

@@ -5,7 +5,7 @@ dotenv.config();
 
 // Create an Arcjet instance with multiple rules
 const arcjetKey = process.env.ARCJET_KEY;
-let ajObj
+let ajObj;
 
 if(arcjetKey){
   ajObj = arcjet({
