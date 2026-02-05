@@ -16,6 +16,6 @@
     "node_modules",
   ],
     "include": [
-    "**/*.ts", "lib/arcjet.js",
+    "**/*.ts"
   ]
 }
