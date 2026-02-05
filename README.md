@@ -44,3 +44,5 @@ The blog is built with a mobile-first approach, with a default dark theme. A pla
 * Fonts: 
     * Megrim: <u>https://fonts.google.com/specimen/Megrim</u>
     * Jockey One: <u>https://fonts.google.com/specimen/Jockey+One<u>
+
+Typescript Migration Initialized
