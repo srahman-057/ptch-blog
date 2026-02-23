@@ -4,8 +4,9 @@
         "noEmit": true,
         "sourceMap": true,          // allow sourcemap support
         "strictNullChecks": true,   // enable strict null checks as a best practice
-        "module": "es6",            // specify module code generation
-        "jsx": "react",             // use typescript to transpile jsx to js
+        "module": "esnext",            // specify module code generation
+        "moduleResolution": "bundler",
+        "jsx": "react-jsx",             // use typescript to transpile jsx to js
         "target": "es5",            // specify ECMAScript target version
         "allowJs": true,             // allow a partial TypeScript and JavaScript codebase
         "skipLibCheck": true
