@@ -4,9 +4,7 @@ import './index.css'
 import App from './App'
 import { BrowserRouter } from 'react-router-dom'
 
-let rootDiv = document.getElementById("root") as HTMLElement;
-
-createRoot(rootDiv).render(
+createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <App />
