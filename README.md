@@ -1,18 +1,26 @@
 # ptch-blog
 
-ptch-blog aims to be a personal blog that serves as a passion project. Project deployed at: <u><a href="https://www.pothochari.com/">www.pothochari.com</a></u></p>
+ptch-blog is a modular blog that serves as a passion project. The project is deployed at: <u><a href="https://www.pothochari.com/">www.pothochari.com</a></u></p>
 
 ## Under the hood
 
 This project utilizes the following:
 
-* Backend: PostgreSQL, ExpressJS
-* Frontend: React, NodeJS
-* Build: Vite
+* <u>Backend</u>: PostgreSQL, NodeJS/ExpressJS
+* <u>Frontend</u>: React, Typescript, TailwindCSS
+* <u>Bundler</u>: Vite
 
-## Building NPM modules
+## Build/Deployment
 
-Execute the command: ```npm i``` in the 'backend/' directory to build the backend modules. Repeat the process in the frontend directory for the frontend modules.
+<u>NPM Packages:</u>
+Execute the command ```npm i``` in the 'backend/' directory to build the backend modules. Repeat the process in the frontend directory for the frontend modules.
+
+<u>Project Build/Deployment:</u>
+Executing ```npm run dev``` inside the frontend folder will intruct the Typescript compiler to perform type checking and error detection without generating any output files, and then trigger a <b>Vite</b> build process which will output an optimized static application bundle into the newly created <b><i>'frontend/dist/'</i></b> directory. This output is suitable for deployment on any static hosting service. 
+
+As a personal choice, Vercel has been selected as the deployment platform for this project. Any repository changes automatically trigger new deployments separately for the frontend and the backend. However, the frontend involves an additional step for proper vercel deployment configuration that will be explained below. 
+
+The frontend is a Single Page Application (SPA) where client-side routing is used. This leads to a specific complication: direct access to specific paths will result in a 404 error since Vercel will not find a corresponding physical file. A rewrite can route all non-existent paths back to the main index.html file, allowing the client-side router to take over and render the correct content. This has been handled in the <b><i>vercel.json</i></b> file in the root of the frontend directory. 
 
 ## Running the project
 
@@ -33,10 +41,10 @@ The blog is built with a mobile-first approach, with a default dark theme. A pla
 
 ## Future improvements
 
-* Theme: Button to toggle between Dark Mode and Light Mode.  
-* Management: An admin page that will simplify management by adding a layer of abstraction.
-* Search: Build index and deploy search engine. 
-* Calendar: Interactive calendar that allows users to filter posts by date.
+* <u>Theme</u>: Button to toggle between Dark Mode and Light Mode.  
+* <u>Management</u>: An admin page that will simplify management by adding a layer of abstraction.
+* <u>Search</u>: Build index and deploy search engine. 
+* <u>Calendar</u>: Interactive calendar that allows users to filter posts by date.
 
 ## Acknowledgement
 
