@@ -5,18 +5,18 @@ import { useState, useEffect } from 'react';
 
 function HomePage() {
       // Init
-      const VITE_API_URL = import.meta.env.VITE_API_URL; // URL of API Endpoint
-      const getAllCategoriesURL = VITE_API_URL + "categories"; // Craft category API call
+      const VITE_API_URL = import.meta.env.VITE_API_URL;          // URL of API Endpoint
+      const getAllCategoriesURL = VITE_API_URL + "categories";    // Craft category API call
 
       // State management for story data
-      const [storydata, setStoryData] = useState([]);
-      const [storyloading, setStoryLoading] = useState(true);
-      const [storyerror, setStoryError] = useState(null);
+      const [storydata, setStoryData] = useState<any>([]);        // <any> used to bypass type checking for now, as the structure of the data is not yet defined
+      const [storyloading, setStoryLoading] = useState<any>(true);
+      const [storyerror, setStoryError] = useState<any>(null);
 
       // State management for category data
-      const [categorydata, setCategoryData] = useState([]);
-      const [categoryloading, setCategoryLoading] = useState(true);
-      const [categoryerror, setCategoryError] = useState(null);
+      const [categorydata, setCategoryData] = useState<any>([]);  
+      const [categoryloading, setCategoryLoading] = useState<any>(true);
+      const [categoryerror, setCategoryError] = useState<any>(null);
 
       const fetchAllStoryData = async () => {
         try {
