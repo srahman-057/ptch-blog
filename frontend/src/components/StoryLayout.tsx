@@ -106,7 +106,7 @@ const StoryLayout = (props) => {
         <br></br>
         
         <article>
-          {ContentImageLayout(1,"LEFT",image)}
+          {ContentImageLayout(1,"LEFT",image,null)}
           {parse(evaluatedString)}
         </article>
         

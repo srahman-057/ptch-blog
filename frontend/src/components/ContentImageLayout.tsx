@@ -1,7 +1,5 @@
 // // Layout for images in the body content
 
-
-
 function ContentImageLayout(TYPE, POSITION, URL, CAPTION){
     console.log(CAPTION);
     switch(TYPE) {
